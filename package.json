@@ -1,0 +1,19 @@
+{
+  "name": "hive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "tassan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
