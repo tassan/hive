@@ -23,7 +23,11 @@ function workBee(bee) {
 app.post('/bees', async (req, res) => {
     const newBees = req.body;
     try {
-        const workedBees = await Promise.all(newBees.map(workBee));
+        const workedBees = [];
+        for (const bee of newBees) {
+            const workedBee = await workBee(bee);
+            workedBees.push(workedBee);
+        }
         bees = bees.concat(workedBees);
         res.status(201).json({ message: 'Bees received and worked successfully' });
     } catch (error) {
@@ -36,8 +40,7 @@ app.post('/bees', async (req, res) => {
 app.get('/bees', (req, res) => {
     res.json(bees);
 });
-
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });
